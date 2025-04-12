@@ -1,0 +1,15 @@
+[Unit]
+Description=Apache Fuseki Server - D2s Standard v3
+After=network.target
+
+[Service]
+Type=simple
+User=fuseki
+Environment=FUSEKI_BASE=/data/fuseki/databases
+Environment=FUSEKI_HOME=/opt/fuseki
+Environment=JAVA_OPTS=-Xms2g -Xmx4g
+ExecStart=/opt/fuseki/fuseki-server --config=/opt/fuseki/configuration/config.ttl --port=3030
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

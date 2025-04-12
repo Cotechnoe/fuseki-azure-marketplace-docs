@@ -1,0 +1,15 @@
+[Unit]
+Description=Apache Fuseki Server - L4s Standard
+After=network.target
+
+[Service]
+Type=simple
+User=fuseki
+Environment=FUSEKI_BASE=/mnt/fuseki/databases
+Environment=FUSEKI_HOME=/opt/fuseki
+Environment=JAVA_OPTS=-Xms8g -Xmx28g
+ExecStart=/opt/fuseki/fuseki-server --config=/opt/fuseki/configuration/config.ttl --port=3030
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

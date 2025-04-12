@@ -33,8 +33,50 @@ This project contains configuration, deployment instructions, and guides to help
 
 ---
 
+## Post-Deployment Configuration (Using Makefile)
+
+This repository includes a `Makefile` that automates the configuration of the systemd service for Apache Fuseki on the deployed VM.
+
+### 🔧 Prerequisites
+
+- SSH access to the VM (default user: `azureuser`)
+- Your public key added to the VM (done automatically by Azure)
+- `make` and `scp` installed on your local machine
+
+### 📦 Directory structure
+
+```
+.
+├── services/
+│   ├── fuseki-b1ms.service
+│   ├── fuseki-d2s-v3.service
+│   └── ... (other service templates)
+├── Makefile  # The Makefile
+```
+
+### ⚙️ How to Use
+
+```bash
+# Example: deploy the systemd service for a D2s_v3 VM
+make deploy HOST=<your-vm-ip> SERVICE_FILE=fuseki-d2s-v3.service
+
+# Enable and start the Fuseki service
+make enable HOST=<your-vm-ip>
+make start HOST=<your-vm-ip>
+
+# Check status
+make status HOST=<your-vm-ip>
+```
+
+> ℹ️ You can list all available targets by running:  
+> `make usage`
+
+---
+
 ## Files in this Repo
 
+- `services/` – systemd unit templates for different Azure VM types  
+- `Makefile` – Makefile for automated deployment and service management  
 - `LICENSE`, `NOTICE` – Legal notices for included open-source components
 
 ---

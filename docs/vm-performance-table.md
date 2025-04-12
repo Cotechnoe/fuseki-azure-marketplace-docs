@@ -6,3 +6,4 @@
 | **E4s Standard v3**   | 4        | 32             | 64                   | SSD               | Medium (~8 Gbps)  | Memory-intensive apps, database servers           |
 | **F4s Standard v2**   | 4        | 8              | 32                   | SSD               | High (~6 Gbps)    | CPU-bound tasks, compute-intensive apps           |
 | **L4s Standard**      | 4        | 32             | 678                  | Local NVMe SSD    | High (~8 Gbps)    | Storage-heavy workloads, NoSQL, caching servers   |
+touch fuseki-b1ms.service, fuseki-d2s-v3.service, fuseki-d16s-v3.service, fuseki-e4s-v3.service, fuseki-f4s-v2.service, fuseki-l4s.service

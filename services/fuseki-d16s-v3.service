@@ -1,0 +1,16 @@
+[Unit]
+Description=Apache Fuseki Server - D16s Standard v3
+After=network.target
+
+[Service]
+Type=simple
+User=fuseki
+Environment=FUSEKI_BASE=/data/fuseki/databases
+Environment=FUSEKI_HOME=/opt/fuseki
+Environment=JAVA_OPTS=-Xms16g -Xmx32g
+ExecStart=/opt/fuseki/fuseki-server --config=/opt/fuseki/configuration/config.ttl --port=3030
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
