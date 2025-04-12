@@ -26,7 +26,7 @@ This project contains configuration, deployment instructions, and guides to help
 
 ## Usage Instructions
 
-1. Deploy the VM from the [Azure Marketplace](#)  
+1. Deploy the VM from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cotechnoe.apache-jena-fuseki?tab=Overview)  
 2. Access Fuseki at: `http://<your-vm-ip>:3030`  
 3. Use default admin credentials (see deployment output)  
 4. Load RDF data or connect via SPARQL client
