@@ -108,5 +108,5 @@ Pour toute demande d’assistance :
 
 Cette image intègre [Apache Jena Fuseki](https://jena.apache.org/) distribué sous la [Licence Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-(c) 2025 – Cotechnoe inc. – https://cotechnoe.com
+(c) 2025 – Cotechnoe inc. – http://cotechnoe.com
 

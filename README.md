@@ -107,5 +107,5 @@ For help and support:
 
 This image is based on [Apache Jena Fuseki](https://jena.apache.org/) and distributed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-(c) 2025 – Cotechnoe inc. – https://cotechnoe.com
+(c) 2025 – Cotechnoe inc. – http://cotechnoe.com
 
