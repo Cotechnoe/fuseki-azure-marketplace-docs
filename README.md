@@ -1,92 +1,111 @@
 # Apache Jena Fuseki – Azure Marketplace VM
 
-**Documentation and support resources** for the Apache Jena Fuseki Virtual Machine image published on the Microsoft Azure Marketplace.
-
-This project contains configuration, deployment instructions, and guides to help you get started with your RDF/SPARQL server in the cloud.
+Welcome to the official repository for the **Apache Jena Fuseki Virtual Machine** image, available on the Microsoft Azure Marketplace. This repository provides deployment tools, service configurations, and guides to help you run a high-performance RDF/SPARQL server in the cloud.
 
 ---
 
-## About the VM
+## About This VM
 
-- **OS**: Ubuntu Server 24.04 LTS  
-- **Software**: Apache Jena Fuseki with TDB2 backend  
-- **Access**: SSH and Web UI (port 3030)  
-- **Cloud-init**: Preconfigured for automatic setup
-
----
-
-## Features
-
-- SPARQL 1.1 endpoint ready to use  
-- Load and query RDF datasets  
-- Persistent or in-memory storage  
-- Designed for quick deployment via Azure
+- Operating System: Ubuntu Server 24.04 LTS  
+- Software: Apache Jena Fuseki with TDB2 storage backend  
+- Access: Web interface (port 3030) and SSH  
+- Setup: Preconfigured with cloud-init for automatic provisioning
 
 ---
 
-## Usage Instructions
+## Key Features
 
-1. Deploy the VM from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cotechnoe.apache-jena-fuseki?tab=Overview)  
-2. Access Fuseki at: `http://<your-vm-ip>:3030`  
-3. Use default admin credentials (see deployment output)  
-4. Load RDF data or connect via SPARQL client
+- Out-of-the-box SPARQL 1.1 endpoint  
+- Load, store, and query RDF datasets  
+- Persistent or in-memory dataset support  
+- Role-based authentication using Apache Shiro  
+- Automated deployment via Makefile scripts  
+- Optimized for Azure VM SKUs (e.g., B1ms, D2s_v3, E4s_v3)
 
 ---
 
-## Post-Deployment Configuration (Using Makefile)
+## Quick Start Guide
 
-This repository includes a `Makefile` that automates the configuration of the systemd service for Apache Fuseki on the deployed VM.
+### Step 1 – Deploy from Azure Marketplace
 
-### 🔧 Prerequisites
+Visit: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cotechnoe.apache-jena-fuseki
 
-- SSH access to the VM (default user: `azureuser`)
-- Your public key added to the VM (done automatically by Azure)
-- `make` and `scp` installed on your local machine
+### Step 2 – Access the Fuseki Server
 
-### 📦 Directory structure
+After deployment, open your browser to:  
+http://your-vm-ip:3030
 
-```
-.
-├── services/
-│   ├── fuseki-b1ms.service
-│   ├── fuseki-d2s-v3.service
-│   └── ... (other service templates)
-├── Makefile  # The Makefile
-```
+### Step 3 – Post-Deployment Setup
 
-### ⚙️ How to Use
+Use the included Makefile to:
+- Deploy or update systemd services
+- Secure Fuseki with a hashed password
+- Restart or manage the Fuseki service remotely
+
+For full instructions, refer to:
+- `docs/fuseki_service_config-en.md` – systemd configuration
+- `docs/fuseki_shiro_config-en.md` – Shiro security configuration
+
+---
+
+## Using the Makefile
+
+This repository includes a robust Makefile to automate service deployment and Shiro security configuration.
+
+### Prerequisites
+
+- SSH access to the VM (azureuser or custom user)
+- make, ssh, scp, and curl installed locally
+
+### Common Commands
 
 ```bash
-# Example: deploy the systemd service for a D2s_v3 VM
-make deploy HOST=<your-vm-ip> SERVICE_FILE=fuseki-d2s-v3.service
+# Deploy systemd service to the remote VM
+make service-deploy HOST=<your-vm-ip> SERVICE_FILE=fuseki-d2s-v3.service
 
-# Enable and start the Fuseki service
-make enable HOST=<your-vm-ip>
-make start HOST=<your-vm-ip>
+# Enable and start the service
+make service-enable HOST=<your-vm-ip>
+make service-start HOST=<your-vm-ip>
 
-# Check status
-make status HOST=<your-vm-ip>
+# Secure the server with hashed Shiro credentials
+make shiro-generate
+make shiro-deploy-hashed HOST=<your-vm-ip>
+
+# Test HTTP login
+make login-test HOST=<your-vm-ip>
 ```
 
-> ℹ️ You can list all available targets by running:  
-> `make usage`
+Run `make usage` to view all available targets.
 
 ---
 
-## Files in this Repo
+## Repository Structure
 
-- `services/` – systemd unit templates for different Azure VM types  
-- `Makefile` – Makefile for automated deployment and service management  
-- `LICENSE`, `NOTICE` – Legal notices for included open-source components
+```bash
+.
+├── Makefile                      # Deployment and configuration automation
+├── services/                    # systemd service templates per VM type
+├── security/                    # Shiro security templates (role-based, open, hashed, etc.)
+├── config-examples/             # Sample Fuseki dataset configurations
+├── sample-data/                 # Example RDF data files
+├── docs/                        # Additional documentation
+│   ├── fuseki_service_config-en.md      # systemd setup (EN)
+│   ├── fuseki_shiro_config-en.md        # Shiro setup (EN)
+```
 
 ---
 
 ## Support
 
-For help, open an [issue](../../issues) or contact the publisher via the Marketplace support form.
+For help and support:
+- Open a GitHub issue at: https://github.com/Cotechnoe/fuseki-azure-marketplace/issues
+- Use the Azure Marketplace support form
 
 ---
 
 ## License
 
-This image includes [Apache Jena Fuseki](https://jena.apache.org/) licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+This image is based on [Apache Jena Fuseki](https://jena.apache.org/) and distributed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
+(c) 2025 – Cotechnoe inc. – https://cotechnoe.com
+
