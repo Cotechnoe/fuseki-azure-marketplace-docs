@@ -1,0 +1,3 @@
+# Ignore all press release documents - private/confidential content
+*
+!.gitignore
