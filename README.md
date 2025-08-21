@@ -1,5 +1,13 @@
 # Apache Jena Fuseki – Azure Marketplace VM
 
+## 🚀 Now Available on Azure Marketplace!
+
+[![Azure Marketplace](./marketing/assets/promotional-images/MS_Azure_Marketplace.png)](https://azuremarketplace.microsoft.com/fr/marketplace/apps/cotechnoe.apache-jena-fuseki?ocid=GTMRewards_WhatsNewBlog_apache-jena-fuseki_05022025)
+
+**[🛒 Deploy Now on Azure Marketplace](https://azuremarketplace.microsoft.com/fr/marketplace/apps/cotechnoe.apache-jena-fuseki?ocid=GTMRewards_WhatsNewBlog_apache-jena-fuseki_05022025)**
+
+---
+
 Welcome to the official repository for the **Apache Jena Fuseki Virtual Machine** image, available on the Microsoft Azure Marketplace. This repository provides deployment tools, service configurations, and guides to help you run a high-performance RDF/SPARQL server in the cloud.
 
 ---
@@ -28,7 +36,7 @@ Welcome to the official repository for the **Apache Jena Fuseki Virtual Machine*
 
 ### Step 1 – Deploy from Azure Marketplace
 
-Visit: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cotechnoe.apache-jena-fuseki
+**[🛒 Deploy directly from Azure Marketplace](https://azuremarketplace.microsoft.com/fr/marketplace/apps/cotechnoe.apache-jena-fuseki?ocid=GTMRewards_WhatsNewBlog_apache-jena-fuseki_05022025)**
 
 ### Step 2 – Access the Fuseki Server
 
